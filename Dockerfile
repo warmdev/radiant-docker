@@ -17,8 +17,9 @@ RUN wget https://download3.rstudio.org/centos5.9/x86_64/shiny-server-1.4.0.721-r
 # Install Radiant
 RUN R -e "install.packages('radiant', repos='http://vnijs.github.io/radiant_miniCRAN/')"
 RUN git clone --depth 1 https://github.com/vnijs/radiant.git; \
-	mkdir /srv/shiny-server/radiant; cd radiant/inst/base; cp -r . /srv/shiny-server/radiant; \
-	cd /opt; rm -rf radiant
+	cp -r radiant /srv/shiny-server; \
+	cd /opt; rm -rf radiant; \
+	cd /srv/shiny-server/radiant; rm -rf .Rbuildignore .git .gitingore .travis.yml build tests
 # Add starting script
 ADD shiny-server.sh /usr/bin/shiny-server.sh
 RUN chmod +x /usr/bin/shiny-server.sh
