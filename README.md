@@ -19,4 +19,4 @@ sudo docker run -d -p 3838:3838 radiant
 
 * OS: CentOS 7
 * R: Microsoft R Open 3.2.3
-* Shiny Server: 1.4.1.759
+* Shiny Server: 1.4.2.786
